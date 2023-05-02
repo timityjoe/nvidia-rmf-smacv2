@@ -1,5 +1,9 @@
 # SMACv2 Documentation
 
+# Launching
+python3 -m smacv2.examples.random_agents
+python3 -m smacv2.examples.pettingzoo.pettingzoo_demo
+
 # Introduction
 
 SMACv2 is an update to [Whirl’s](https://whirl.cs.ox.ac.uk/) [Starcraft Multi-Agent Challenge](https://github.com/oxwhirl/smac), which is a benchmark for research in the field of cooperative multi-agent reinforcement learning. SMAC and SMACv2 both focus on decentralised micromanagement scenarios in [StarCraft II](https://starcraft2.com/en-gb/), rather than the full game. It makes use of Blizzard’s StarCraft II Machine Learning API as well as Deepmind’s PySC2. We hope that you will enjoy using SMACv2! More details about SMAC can be found in the [SMAC README](https://github.com/oxwhirl/smac/blob/master/README.md) as well as the [SMAC paper](https://arxiv.org/abs/1902.04043). **SMAC retains exactly the same API as SMAC so you should not need to change your algorithm code other than adjusting to the new observation and state size**.
