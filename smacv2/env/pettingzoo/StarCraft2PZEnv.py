@@ -3,7 +3,11 @@ from gym.utils import EzPickle
 from gym.utils import seeding
 from gym import spaces
 from pettingzoo.utils.env import ParallelEnv
-from pettingzoo.utils.conversions import from_parallel_wrapper
+
+# Mod by Tim:
+#from pettingzoo.utils.conversions import from_parallel_wrapper
+from pettingzoo.utils.conversions import aec_to_parallel
+
 from pettingzoo.utils import wrappers
 import numpy as np
 
@@ -15,14 +19,17 @@ def parallel_env(max_cycles=max_cycles_default, **smac_args):
 
 
 def raw_env(max_cycles=max_cycles_default, **smac_args):
-    return from_parallel_wrapper(parallel_env(max_cycles, **smac_args))
-
+    # Mod by Tim:
+    # return from_parallel_wrapper(parallel_env(max_cycles, **smac_args))
+    return aec_to_parallel(parallel_env(max_cycles, **smac_args))
 
 def make_env(raw_env):
     def env_fn(**kwargs):
         env = raw_env(**kwargs)
         # env = wrappers.TerminateIllegalWrapper(env, illegal_reward=-1)
-        env = wrappers.AssertOutOfBoundsWrapper(env)
+
+        # Mod by Tim: Getting error:"Your environment should override the action_space function". Turn off for now
+        # env = wrappers.AssertOutOfBoundsWrapper(env)
         env = wrappers.OrderEnforcingWrapper(env)
         return env
 
@@ -189,7 +196,9 @@ env = make_env(raw_env)
 
 
 class _parallel_env(smac_parallel_env, EzPickle):
-    metadata = {"render.modes": ["human"], "name": "sc2"}
+    # Mod by Tim:
+    # metadata = {"render.modes": ["human"], "name": "sc2"}
+    metadata = {"render.modes": ["human"], "name": "sc2", "is_parallelizable": True}
 
     def __init__(self, max_cycles, **smac_args):
         EzPickle.__init__(self, max_cycles, **smac_args)

@@ -419,6 +419,8 @@ class StarCraft2Env(MultiAgentEnv):
     def _launch(self):
         """Launch the StarCraft II game."""
         self._run_config = run_configs.get(version=self.game_version)
+        print("_launch() _run_config", self._run_config)
+
         self.version = self._run_config.version
         _map = maps.get(self.map_name)
 

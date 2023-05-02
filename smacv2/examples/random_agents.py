@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division, print_function
 
 import time
-from os import replace
+# from os import replace
 
 import numpy as np
 from absl import logging
@@ -44,6 +44,7 @@ def main():
     )
 
     env_info = env.get_env_info()
+    print("env_info:", env_info)
 
     n_actions = env_info["n_actions"]
     n_agents = env_info["n_agents"]
@@ -61,7 +62,7 @@ def main():
 
         while not terminated:
             obs = env.get_obs()
-            print(f"Obs size: {obs[0].shape}")
+            print("Obs size: {obs[0].shape}")
             state = env.get_state()
             cap = env.get_capabilities()
             # env.render()  # Uncomment for rendering
