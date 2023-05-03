@@ -1,8 +1,10 @@
 # SMACv2 Documentation
 
 # Launching
-python3 -m smacv2.examples.random_agents
-python3 -m smacv2.examples.pettingzoo.pettingzoo_demo
+```shell
+$ python3 -m smacv2.examples.random_agents
+$ python3 -m smacv2.examples.pettingzoo.pettingzoo_demo
+```
 
 # Introduction
 

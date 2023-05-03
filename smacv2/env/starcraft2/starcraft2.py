@@ -437,7 +437,7 @@ class StarCraft2Env(MultiAgentEnv):
                 map_path=_map.path,
                 map_data=self._run_config.map_data(_map.path),
             ),
-            realtime=False,
+            realtime=True,
             random_seed=self._seed,
         )
         create.player_setup.add(type=sc_pb.Participant)
