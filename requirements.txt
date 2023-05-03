@@ -3,6 +3,7 @@ websocket
 websocket-client
 loguru
 gym
+# For pettingzoo, ${virtualenvs}/pettingzoo/utils/conversions.py, L126, change to "self.aec_env.reset()"
 pettingzoo
 numpy>=1.10 
 absl-py>=0.1.0
