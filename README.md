@@ -1,7 +1,15 @@
 # SMACv2 Documentation
 
+# Installation
+```shell
+$ pipenv shell
+$ pipenv install -r requirements.txt
+```
+
 # Launching
 ```shell
+$ pipenv shell
+$ source ~/pythonsc2up.sh 
 $ python3 -m smacv2.examples.random_agents
 $ python3 -m smacv2.examples.pettingzoo.pettingzoo_demo
 ```
